@@ -2,6 +2,10 @@
     <div>
         <!-- Top Section -->
 
+        <audio autoplay loop ref="audio">
+            <source src="assets/audio/relaxing.mp3" type="audio/mpeg" />
+        </audio>
+
         <div class="flex flex-col h-screen">
             <div
                 class="h-16 p-2 bg-gray-50 shadow-lg fixed top-0 left-0 right-0"
@@ -43,6 +47,18 @@
                     >
                     </iframe>
                 </div>
+
+                <iframe
+                    allowfullscreen="allowfullscreen"
+                    scrolling="no"
+                    class="fp-iframe"
+                    style="
+                        border: 1px solid lightgray;
+                        width: 100%;
+                        height: 800px;
+                    "
+                    src="https://heyzine.com/flip-book/8cc2fb9ae8.html"
+                ></iframe>
             </div>
 
             <!-- Bottom Section -->
@@ -89,7 +105,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+    mounted() {
+        this.$refs.audio.volume = 0.2;
+        this.$refs.audio.play();
+    },
+};
 </script>
 
 <style scoped></style>
